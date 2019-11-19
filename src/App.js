@@ -1,9 +1,7 @@
 import React, { Component } from "react"
 import facade from "./apiFacade";
-import Planets from "./components/Planets";
-import Films from "./components/Films";
-import Persons from "./components/Persons";
-import Welcome from "./components/Welcome"
+import Order from "./components/Order";
+import Info from "./components/Info";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -84,10 +82,8 @@ export default App;
 const Header = () => {
   return (
     <ul className="header">
-      <li><NavLink exact activeClassName="active" to="/">Welcome</NavLink></li>
-      <li><NavLink activeClassName="active" to="/planets">Planets</NavLink></li>
-      <li><NavLink activeClassName="active" to="/persons">Persons</NavLink></li>
-      <li><NavLink activeClassName="active" to="/films">Films</NavLink></li>
+      <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
+      <li><NavLink activeClassName="active" to="/info">Info</NavLink></li>
     </ul>
   );
 };
@@ -96,10 +92,8 @@ const Content = () => {
   return (
 
     <Switch>
-      <Route exact path="/"> <Welcome /> </Route>
-      <Route path="/planets"> <Planets /> </Route>
-      <Route path="/persons"> <Persons /> </Route>
-      <Route path="/films"> <Films /> </Route>
+      <Route exact path="/"> <Order /> </Route>
+      <Route path="/info"> <Info /> </Route>
     </Switch>
 
   )
