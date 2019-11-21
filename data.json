@@ -31,8 +31,6 @@
       "details": "meh"
     }
   ],
-
-
   "locations": [
     {
       "id": 1,
@@ -51,6 +49,55 @@
       "address": "Copenhagen Commercial Neighborhood",
       "Details": "Commercial Business Area",
       "coordinates": "55.614174, 12.472494"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "date": [
+        "2019-11-20T23:00:00.000Z",
+        "2019-11-28T22:59:59.999Z"
+      ],
+      "pickupPoint": {
+        "label": "Copenhagen Airport",
+        "value": {
+          "id": 1,
+          "address": "Copenhagen Airport",
+          "Details": "Denmarks national Airport",
+          "coordinates": "55.629953, 12.637484"
+        }
+      },
+      "car": {
+        "label": "Ford",
+        "value": {
+          "id": 2,
+          "make": "Ford",
+          "model": "Fiesta",
+          "details": "family-car"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "date": [
+        "2019-11-20T23:00:00.000Z",
+        "2019-11-28T22:59:59.999Z"
+      ],
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "label": "Porche",
+        "value": {
+          "id": 1,
+          "make": "Porche",
+          "model": "911",
+          "details": "race-car"
+        }
+      }
     }
   ]
 }

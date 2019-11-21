@@ -28,24 +28,23 @@ export class Location extends Component {
         style={{
           position: "relative",
           height: "calc(100vh - 20px)"
-        }}
-      >
-        <Map style={{}} google={this.props.google} initialCenter={{lat:55.642954, lng:12.545465}} zoom={11}>
-        <Marker
+        }}>
+        <Map style={{}} google={this.props.google} initialCenter={{ lat: 55.642954, lng: 12.545465 }} zoom={11}>
+          <Marker
             title={'Copenhagen Central Station'}
             name={'Central Station'}
-            position={{lat: 55.672388, lng: 12.563445}}
-        />
-        <Marker
+            position={{ lat: 55.672388, lng: 12.563445 }}
+          />
+          <Marker
             title={'Copenhagen Airport'}
             name={'Airport'}
-            position={{lat: 55.629953, lng: 12.637484}}
-        />
-        <Marker
+            position={{ lat: 55.629953, lng: 12.637484 }}
+          />
+          <Marker
             title={'Copenhagen Commercial Neighborhood'}
             name={'Business Area'}
-            position={{lat: 55.614174, lng: 12.472494}}
-        />
+            position={{ lat: 55.614174, lng: 12.472494 }}
+          />
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}

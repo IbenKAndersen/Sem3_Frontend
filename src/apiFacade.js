@@ -1,30 +1,45 @@
 const URL = "https://kodebanditterne.dk/CA3-Backend-2.0";
+const CAR_URL = "http://localhost:3000/orders";
 function handleHttpErrors(res) {
- if (!res.ok) {
-   return Promise.reject({ status: res.status, fullError: res.json() })
- }
- return res.json();
+  if (!res.ok) {
+    return Promise.reject({ status: res.status, fullError: res.json() })
+  }
+  return res.json();
 }
 
 class ApiFacade {
- //Insert utility-methods from a latter step (d) here
- makeOptions(method,addToken,body) {
-   var opts = {
-     method: method,
-     headers: {
-       "Content-type": "application/json",
-       'Accept': 'application/json',
-     }
-   }
-   if (addToken && this.loggedIn()) {
-     opts.headers["x-access-token"] = this.getToken();
-   }
-   if (body) {
-     opts.body = JSON.stringify(body);
-   }
-   return opts;
- }
- setToken = (token) => {
+  //Insert utility-methods from a latter step (d) here
+  makeOptions(method, addToken, body) {
+    var opts = {
+      method: method,
+      headers: {
+        "Content-type": "application/json",
+        'Accept': 'application/json',
+      }
+    }
+    if (addToken && this.loggedIn()) {
+      opts.headers["x-access-token"] = this.getToken();
+    }
+    if (body) {
+      opts.body = JSON.stringify(body);
+    }
+    return opts;
+  }
+
+  makeOptionsWithoutToken(method, body) {
+    var opts = {
+      method: method,
+      headers: {
+        "Content-type": "application/json",
+      }
+    }
+    if (body) {
+      opts.body = JSON.stringify(body);
+    }
+    return opts;
+  }
+
+  setToken = (token) => {
     localStorage.setItem('jwtToken', token)
   }
   getToken = () => {
@@ -39,18 +54,27 @@ class ApiFacade {
   }
 
   login = (user, pass) => {
-    const options = this.makeOptions("POST", true,{ username: user, password: pass });
+    const options = this.makeOptions("POST", true, { username: user, password: pass });
     return fetch(URL + "/api/login", options)
       .then(handleHttpErrors)
       .then(res => { this.setToken(res.token) })
+  }
+
+  fetchData = () => {
+    const options = this.makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/info/user", options)
+      .then(handleHttpErrors);
+  }
+
+  sendOrder = (order) => {
+    if (order.date !== "") {
+      const options = this.makeOptionsWithoutToken("POST", order);
+      fetch(CAR_URL, options);
+      console.log("HEY YOU MADE IT!")
     }
-    
-    fetchData = () => {
-        const options = this.makeOptions("GET",true); //True add's the token
-        return fetch(URL + "/api/info/user", options)
-        .then(handleHttpErrors);
-      }
-     
+    console.log(order)
+  }
+
 }
 const facade = new ApiFacade();
 
