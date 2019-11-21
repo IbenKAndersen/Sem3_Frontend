@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-do
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
+import Calendar from "react-calendar";
 
 class LogIn extends Component {
   constructor(props) {
@@ -101,6 +102,6 @@ const Content = () => {
 
   )
 }
-
+console.log(Calendar);
 
 
