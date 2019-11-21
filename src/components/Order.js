@@ -29,6 +29,7 @@ export default function Order() {
   const onChange = date => setDate(date);
 
   return (
+    
     <div>
       <h2>
         <b>Kodebanditternes car rental </b>
@@ -51,11 +52,16 @@ export default function Order() {
       </div>
 
       <form>
-        <Select
+        <div>
+        <br />
+      <h3>Choose pick-up location</h3>
+          <Select
           value={selectedOption}
           onChange={handleChange}
           options={options}
         />
+        </div>
+        
         <p>
           <i>
             <b>Make</b>
