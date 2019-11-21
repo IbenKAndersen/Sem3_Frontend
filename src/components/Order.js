@@ -1,7 +1,12 @@
 import React from "react";
+import Calendar from 'react-calendar'
 
-export default function Order() {
-
+export default class Order extends React.Component {
+  state = {
+    date: new Date(),
+  }
+  onChange = date => this.setState({ date })
+  render() {
   return (
     <div>
       <h2><b>Kodebanditternes car rental </b></h2>
@@ -10,9 +15,18 @@ export default function Order() {
         Our site searches cheap car rental prices in over 5000 locations
         worldwide. Find your ideal car and book online today.{" "}
       </p>
+      <br/><br/><h3>Choose the days that you want to rent a car</h3>
+      <p><Calendar 
+      onChange={this.onChange}
+      Startvalue={this.state.date}
+      selectRange={true}
+      minDate={new Date()}
+      />{console.log(this.state.date)}</p>
 
+      
       <form>
       <p>
+        
         <i><b>Make</b></i>
         <form id="make">
           <select name="dropdown">
@@ -62,5 +76,5 @@ export default function Order() {
 
       </form>
     </div>
-  );
+  );}
 }
