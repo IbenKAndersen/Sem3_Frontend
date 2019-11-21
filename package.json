@@ -6,14 +6,18 @@
     "bootstrap": "^4.3.1",
     "fixed-data-table-2": "^1.0.1",
     "google-maps-react": "^2.0.2",
+    "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
+    "react-calendar": "^2.19.2",
     "react-dom": "^16.11.0",
     "react-json-pretty": "^2.2.0",
+    "react-moment": "^0.9.6",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-select": "^3.0.8",
-    "react-table": "^7.0.0-beta.12"
+    "react-table": "^7.0.0-beta.12",
+    "tail.datetime": "^0.4.13"
   },
   "scripts": {
     "start": "react-scripts start",
