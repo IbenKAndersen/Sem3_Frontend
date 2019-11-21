@@ -18,10 +18,14 @@ export default class Order extends React.Component {
       <br/><br/><h3>Choose a start date for your trip</h3>
       <p><Calendar 
       onChange={this.onChange}
-      Cvalue={this.state.date}/></p>
-      {console.log(this.state.date)}
+      Startvalue={this.state.date}
+      selectRange={true}
+      />{console.log(this.state.date)}</p>
+
+      
       <form>
       <p>
+        
         <i><b>Make</b></i>
         <form id="make">
           <select name="dropdown">
