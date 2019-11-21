@@ -15,11 +15,12 @@ export default class Order extends React.Component {
         Our site searches cheap car rental prices in over 5000 locations
         worldwide. Find your ideal car and book online today.{" "}
       </p>
-      <br/><br/><h3>Choose a start date for your trip</h3>
+      <br/><br/><h3>Choose the days that you want to rent a car</h3>
       <p><Calendar 
       onChange={this.onChange}
       Startvalue={this.state.date}
       selectRange={true}
+      minDate={new Date()}
       />{console.log(this.state.date)}</p>
 
       
