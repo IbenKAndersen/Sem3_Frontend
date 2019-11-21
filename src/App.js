@@ -5,6 +5,8 @@ import Info from "./components/Info";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import CarSelection from "./components/CarSelection";
+import Calendar from "react-calendar";
 
 class LogIn extends Component {
   constructor(props) {
@@ -84,6 +86,7 @@ const Header = () => {
     <ul className="header">
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
       <li><NavLink activeClassName="active" to="/info">Info</NavLink></li>
+      <li><NavLink activeClassName="active" to="/carSelection">carSelection</NavLink></li>
     </ul>
   );
 };
@@ -94,10 +97,11 @@ const Content = () => {
     <Switch>
       <Route exact path="/"> <Order /> </Route>
       <Route path="/info"> <Info /> </Route>
+      <Route path="/carSelection"> <CarSelection /> </Route>
     </Switch>
 
   )
 }
-
+console.log(Calendar);
 
 

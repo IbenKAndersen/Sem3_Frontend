@@ -1,0 +1,48 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "make": "Porche",
+      "model": "911",
+      "details": "race-car"
+    },
+    {
+      "id": 2,
+      "make": "Ford",
+      "model": "Fiesta",
+      "details": "family-car"
+    },
+    {
+      "id": 3,
+      "make": "BMW",
+      "model": "X5",
+      "details": "show-off"
+    },
+    {
+      "id": 4,
+      "make": "Audi",
+      "model": "A9",
+      "details": "really-show-off"
+    },
+    {
+      "id": 5,
+      "make": "Kia",
+      "model": "Picanto",
+      "details": "meh"
+    }
+  ],
+
+  
+  "locations": [
+    {
+      "id": 1,
+      "address": "Copenhagen",
+      "coordinates": "55.629953, 12.637484"
+    },
+    {
+      "id": 2,
+      "address": "another comment",
+      "coordinates": 2
+    }
+  ]
+}
