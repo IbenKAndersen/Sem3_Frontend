@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Order() {
+
   return (
     <div>
       <h2><b>Kodebanditternes car rental </b></h2>
@@ -27,7 +28,7 @@ export default function Order() {
       <p>
         <i><b>Model</b></i>
         <form id="model">
-          <select name="dropdown">
+          <select name="dropdown2">
             <option value="A4" selected>
               A4
             </option>
@@ -53,8 +54,12 @@ export default function Order() {
         <input type="checkbox" name="noinsurance" value="no" />{" "}
         <i>I already have insurance</i>
       </p>
+      <p id="details">
+          some text
+      </p>
 
       <input type="submit" value="Search for cars"/>
+
       </form>
     </div>
   );
