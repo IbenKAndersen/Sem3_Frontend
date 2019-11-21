@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import facade from "./apiFacade";
 import Order from "./components/Order";
 import Info from "./components/Info";
+import Location from "./components/Location";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -86,6 +87,7 @@ const Header = () => {
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
       <li><NavLink activeClassName="active" to="/info">Info</NavLink></li>
       <li><NavLink activeClassName="active" to="/carSelection">carSelection</NavLink></li>
+      <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
     </ul>
   );
 };
@@ -97,6 +99,7 @@ const Content = () => {
       <Route exact path="/"> <Order /> </Route>
       <Route path="/info"> <Info /> </Route>
       <Route path="/carSelection"> <CarSelection /> </Route>
+      <Route path="/location"> <Location /> </Route>
     </Switch>
 
   )

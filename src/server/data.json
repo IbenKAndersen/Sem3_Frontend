@@ -32,17 +32,25 @@
     }
   ],
 
-  
+
   "locations": [
     {
       "id": 1,
-      "address": "Copenhagen",
+      "address": "Copenhagen Airport",
+      "Details": "Denmarks national Airport",
       "coordinates": "55.629953, 12.637484"
     },
     {
       "id": 2,
-      "address": "another comment",
-      "coordinates": 2
+      "address": "Copenhagen Central Station",
+      "Details": "Center of Copenhagen Rail Station",
+      "coordinates": "55.672388, 12.563445"
+    },
+    {
+      "id": 2,
+      "address": "Copenhagen Central Station",
+      "Details": "Center of Copenhagen Rail Station",
+      "coordinates": "55.614174, 12.472494"
     }
   ]
 }
