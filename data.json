@@ -98,6 +98,117 @@
           "details": "race-car"
         }
       }
+    },
+    {
+      "id": 3,
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "id": 2,
+        "make": "Ford",
+        "model": "Fiesta",
+        "details": "family-car"
+      },
+      "date": [
+        "2019-11-20T23:00:00.000Z",
+        "2019-11-29T22:59:59.999Z"
+      ]
+    },
+    {
+      "id": 4,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 1,
+        "make": "Porche",
+        "model": "911",
+        "details": "race-car"
+      },
+      "date": [
+        "2019-12-03T23:00:00.000Z",
+        "2019-12-11T22:59:59.999Z"
+      ]
+    },
+    {
+      "id": 5,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 2,
+        "make": "Ford",
+        "model": "Fiesta",
+        "details": "family-car"
+      },
+      "date": [
+        "2019-11-21T23:00:00.000Z",
+        "2019-11-30T22:59:59.999Z"
+      ]
+    },
+    {
+      "id": 6,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 2,
+        "make": "Ford",
+        "model": "Fiesta",
+        "details": "family-car"
+      },
+      "date": [
+        "2019-11-21T23:00:00.000Z",
+        "2019-11-30T22:59:59.999Z"
+      ]
+    },
+    {
+      "id": 7,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 2,
+        "make": "Ford",
+        "model": "Fiesta",
+        "details": "family-car"
+      },
+      "date": null
+    },
+    {
+      "id": 8,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 2,
+        "make": "Ford",
+        "model": "Fiesta",
+        "details": "family-car"
+      },
+      "date": [
+        "2019-11-21T23:00:00.000Z",
+        "2019-11-29T22:59:59.999Z"
+      ]
     }
   ]
 }

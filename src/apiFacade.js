@@ -70,9 +70,8 @@ class ApiFacade {
     if (order.date !== "") {
       const options = this.makeOptionsWithoutToken("POST", order);
       fetch(CAR_URL, options);
-      console.log("HEY YOU MADE IT!")
     }
-    console.log(order)
+
   }
 
 }

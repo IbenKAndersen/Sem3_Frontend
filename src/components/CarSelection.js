@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import JSONPretty from 'react-json-pretty';
 
 const CarSelection = () => {
-    const carURL = "http://localhost:3000/cars"
+    const carURL = "http://localhost:3000/orders"
   const [hasError, setErrors] = useState(false);
   const [cars, setCars] = useState({});
 
