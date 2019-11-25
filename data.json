@@ -209,6 +209,25 @@
         "2019-11-21T23:00:00.000Z",
         "2019-11-29T22:59:59.999Z"
       ]
+    },
+    {
+      "id": 9,
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "id": 1,
+        "make": "Porche",
+        "model": "911",
+        "details": "race-car"
+      },
+      "date": [
+        "2019-12-20T23:00:00.000Z",
+        "2019-12-26T22:59:59.999Z"
+      ]
     }
   ]
 }
