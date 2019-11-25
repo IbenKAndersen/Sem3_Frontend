@@ -98,6 +98,44 @@
           "details": "race-car"
         }
       }
+    },
+    {
+      "id": 3,
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "id": 3,
+        "make": "BMW",
+        "model": "X5",
+        "details": "show-off"
+      },
+      "date": [
+        "2019-11-24T23:00:00.000Z",
+        "2019-11-26T22:59:59.999Z"
+      ]
+    },
+    {
+      "id": 4,
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "id": 3,
+        "make": "BMW",
+        "model": "X5",
+        "details": "show-off"
+      },
+      "date": [
+        "2019-11-25T23:00:00.000Z",
+        "2019-11-27T22:59:59.999Z"
+      ]
     }
   ]
 }
