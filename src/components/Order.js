@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: "", date: null };
+  const initialValue = { id: null, date: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: "", insurance: "" };
   const [selectedOption, setSelectedOption] = useState();
   const [selectedDropoff, setSelectedDropoff] = useState();
   const [selectedCar, setSeletectedCar] = useState("");
@@ -13,6 +13,8 @@ export default function Order() {
   const [equipment, setEquipment] = useState();
   const [selectedEquipment, setSelectedEquipment] = useState("");
   const [date, setDate] = useState(new Date());
+  const [insurance, setInsurance] = useState();
+  const [selectedInsurance, setSelectedInsurance] = useState("");
   const [order, setOrder] = useState(initialValue);
 
   const handleChange = selectedOption => {
@@ -30,6 +32,10 @@ export default function Order() {
   const handleEquipmentChange = selectedEquipment => {
     setSelectedEquipment(selectedEquipment);
     setOrder({ ...order, equipment: selectedEquipment.value });
+  }
+  const handleInsuranceChange = selectedInsurance => {
+    setSelectedInsurance(selectedInsurance);
+    setOrder({ ...order, insurance: selectedInsurance.value });
   }
 
   useEffect(() => {
@@ -66,9 +72,21 @@ export default function Order() {
       });
       setEquipment(list);
     }
+    async function fetchInsuranceData() {
+      let response = await fetch("http://localhost:3000/insurance");
+      let data = await response.json();
+      const list = [];
+
+      data.forEach(element => {
+        let dropDownEle = { label: element["name"], value: element };
+        list.push(dropDownEle);
+      });
+      setInsurance(list);
+    }
     fecthLocationData();
     fecthLocationCarsData();
     fetchEquipmentData();
+    fetchInsuranceData();
   }, []);
 
   const onChange = date => {
@@ -131,6 +149,13 @@ export default function Order() {
           value={selectedEquipment}
           onChange={handleEquipmentChange}
           options={equipment}
+        />
+        <h3>Choose Insurance</h3>
+        <Select 
+          name="insurance"
+          value={selectedInsurance}
+          onChange={handleInsuranceChange}
+          options={insurance}
         />
         <input type="submit" value="Order" />
       </form>

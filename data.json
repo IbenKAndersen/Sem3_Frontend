@@ -305,6 +305,41 @@
         "2019-11-27T23:00:00.000Z",
         "2019-11-29T22:59:59.999Z"
       ]
+    },
+    {
+      "id": 13,
+      "date": [
+        "2019-11-27T23:00:00.000Z",
+        "2019-11-29T22:59:59.999Z"
+      ],
+      "pickupPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "dropoffPoint": {
+        "id": 1,
+        "address": "Copenhagen Airport",
+        "Details": "Denmarks national Airport",
+        "coordinates": "55.629953, 12.637484"
+      },
+      "car": {
+        "id": 1,
+        "make": "Porche",
+        "model": "911",
+        "details": "race-car"
+      },
+      "equipment": {
+        "id": 1,
+        "name": "Air condition",
+        "price": "500"
+      },
+      "insurance": {
+        "id": 2,
+        "name": "I already have a car insurance.",
+        "price": "0"
+      }
     }
   ],
   "equipment": [
@@ -317,6 +352,18 @@
       "id": 2,
       "name": "Baby seat",
       "price": "500"
+    }
+  ],
+  "insurance": [
+    {
+      "id": 1,
+      "name": "Buy car insurance.",
+      "price": "1000"
+    },
+    {
+      "id": 2,
+      "name": "I already have a car insurance.",
+      "price": "0"
     }
   ]
 }
