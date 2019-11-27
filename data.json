@@ -275,6 +275,48 @@
         "details": "race-car"
       },
       "date": null
+    },
+    {
+      "id": 12,
+      "pickupPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "dropoffPoint": {
+        "id": 2,
+        "address": "Copenhagen Central Station",
+        "Details": "Center of Copenhagen Rail Station",
+        "coordinates": "55.672388, 12.563445"
+      },
+      "car": {
+        "id": 3,
+        "make": "BMW",
+        "model": "X5",
+        "details": "show-off"
+      },
+      "equipment": {
+        "id": 2,
+        "name": "Baby seat",
+        "price": "500"
+      },
+      "date": [
+        "2019-11-27T23:00:00.000Z",
+        "2019-11-29T22:59:59.999Z"
+      ]
+    }
+  ],
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Air condition",
+      "price": "500"
+    },
+    {
+      "id": 2,
+      "name": "Baby seat",
+      "price": "500"
     }
   ]
 }

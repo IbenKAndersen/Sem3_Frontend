@@ -4,12 +4,14 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null,  pickupPoint: "", dropoffPoint: "", car: "", date: null };
+  const initialValue = { id: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: "", date: null };
   const [selectedOption, setSelectedOption] = useState();
   const [selectedDropoff, setSelectedDropoff] = useState();
   const [selectedCar, setSeletectedCar] = useState("");
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
+  const [equipment, setEquipment] = useState();
+  const [selectedEquipment, setSelectedEquipment] = useState("");
   const [date, setDate] = useState(new Date());
   const [order, setOrder] = useState(initialValue);
 
@@ -24,6 +26,10 @@ export default function Order() {
   const handleCarChange = selectedCar => {
     setSeletectedCar(selectedCar);
     setOrder({ ...order, car: selectedCar.value });
+  }
+  const handleEquipmentChange = selectedEquipment => {
+    setSelectedEquipment(selectedEquipment);
+    setOrder({ ...order, equipment: selectedEquipment.value });
   }
 
   useEffect(() => {
@@ -48,10 +54,21 @@ export default function Order() {
         list.push(dropDownEle);
       });
       setCars(list);
+    }
+    async function fetchEquipmentData() {
+      let response = await fetch("http://localhost:3000/equipment");
+      let data = await response.json();
+      const list = [];
 
+      data.forEach(element => {
+        let dropDownEle = { label: element["name"], value: element };
+        list.push(dropDownEle);
+      });
+      setEquipment(list);
     }
     fecthLocationData();
     fecthLocationCarsData();
+    fetchEquipmentData();
   }, []);
 
   const onChange = date => {
@@ -107,6 +124,13 @@ export default function Order() {
           value={selectedCar}
           onChange={handleCarChange}
           options={cars}
+        />
+        <h3>Choose Equipment</h3>
+        <Select 
+          name="equipment"
+          value={selectedEquipment}
+          onChange={handleEquipmentChange}
+          options={equipment}
         />
         <input type="submit" value="Order" />
       </form>
