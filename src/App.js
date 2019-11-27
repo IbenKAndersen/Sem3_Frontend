@@ -84,7 +84,7 @@ const Header = () => {
   return (
     <ul className="header">
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
-      <li><NavLink activeClassName="active" to="/carSelection">carSelection</NavLink></li>
+      <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
     </ul>
   );

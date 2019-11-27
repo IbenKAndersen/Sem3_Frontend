@@ -4,9 +4,9 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null, pickupPoint: "", car: "", date: null };
+  const initialValue = { id: null,  pickupPoint: "", dropoffPoint: "", car: "", date: null };
   const [selectedOption, setSelectedOption] = useState();
-
+  const [selectedDropoff, setSelectedDropoff] = useState();
   const [selectedCar, setSeletectedCar] = useState("");
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
@@ -16,6 +16,10 @@ export default function Order() {
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
     setOrder({ ...order, pickupPoint: selectedOption.value });
+  };
+  const handleChangedropoff = selectedDropoff => {
+    setSelectedDropoff(selectedDropoff);
+    setOrder({ ...order, dropoffPoint: selectedDropoff.value });
   };
   const handleCarChange = selectedCar => {
     setSeletectedCar(selectedCar);
@@ -88,6 +92,13 @@ export default function Order() {
           name="pickupPoint"
           value={selectedOption}
           onChange={handleChange}
+          options={options}
+        />
+        <h3>Choose drop-off location</h3>
+        <Select
+          name="dropoffPoint"
+          value={selectedDropoff}
+          onChange={handleChangedropoff}
           options={options}
         />
         <h3>Choose Brand</h3>
