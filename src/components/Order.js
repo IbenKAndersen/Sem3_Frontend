@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null, dropoffPoint: "", pickupPoint: "", car: "", date: null };
+  const initialValue = { id: null,  pickupPoint: "", dropoffPoint: "", car: "", date: null };
   const [selectedOption, setSelectedOption] = useState();
   const [selectedDropoff, setSelectedDropoff] = useState();
   const [selectedCar, setSeletectedCar] = useState("");
