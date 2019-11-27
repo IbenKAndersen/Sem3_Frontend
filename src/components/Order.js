@@ -5,38 +5,25 @@ import facade from "../apiFacade";
 
 export default function Order() {
   const initialValue = { id: null, date: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: "", insurance: "" };
-  const [selectedOption, setSelectedOption] = useState();
-  const [selectedDropoff, setSelectedDropoff] = useState();
-  const [selectedCar, setSeletectedCar] = useState("");
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
   const [equipment, setEquipment] = useState();
-  const [selectedEquipment, setSelectedEquipment] = useState("");
-  const [date, setDate] = useState(new Date());
   const [insurance, setInsurance] = useState();
-  const [selectedInsurance, setSelectedInsurance] = useState("");
   const [order, setOrder] = useState(initialValue);
 
-  const handleChange = selectedOption => {
-    setSelectedOption(selectedOption);
-    setOrder({ ...order, pickupPoint: selectedOption.value });
+  const newHandleChange = ( value, action ) => {
+      setOrder({...order, [action.name]: value.value});
   };
-  const handleChangedropoff = selectedDropoff => {
-    setSelectedDropoff(selectedDropoff);
-    setOrder({ ...order, dropoffPoint: selectedDropoff.value });
+
+  const changeDate = date => {
+    setOrder({ ...order, date: date });
   };
-  const handleCarChange = selectedCar => {
-    setSeletectedCar(selectedCar);
-    setOrder({ ...order, car: selectedCar.value });
-  }
-  const handleEquipmentChange = selectedEquipment => {
-    setSelectedEquipment(selectedEquipment);
-    setOrder({ ...order, equipment: selectedEquipment.value });
-  }
-  const handleInsuranceChange = selectedInsurance => {
-    setSelectedInsurance(selectedInsurance);
-    setOrder({ ...order, insurance: selectedInsurance.value });
-  }
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(order);
+    facade.sendOrder(order);
+  };
 
   useEffect(() => {
     async function fecthLocationData() {
@@ -89,35 +76,22 @@ export default function Order() {
     fetchInsuranceData();
   }, []);
 
-  const onChange = date => {
-    setDate(date);
-    setOrder({ ...order, date: date })
-  }
-
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    console.log(order);
-    facade.sendOrder(order);
-  };
-
   return (
     <div>
       <h2>
         <b>Kodebanditternes car rental </b>
       </h2>
       <p>
-        {" "}
         Our site searches cheap car rental prices in over 5000 locations
-        worldwide. Find your ideal car and book online today.{" "}
+        worldwide. Find your ideal car and book online today.
       </p>
       <br />
       <br />
       <h3>Choose the days that you want to rent a car</h3>
       <form onSubmit={handleSubmit}>
         <Calendar
-          name="date"
-          onChange={onChange}
-          Startvalue={date}
+          onChange={changeDate}
+          //Startvalue={date}
           selectRange={true}
           minDate={new Date()}
         />
@@ -125,36 +99,36 @@ export default function Order() {
         <h3>Choose pick-up location</h3>
         <Select
           name="pickupPoint"
-          value={selectedOption}
-          onChange={handleChange}
+          //value={selectedOption}
+          onChange={newHandleChange}
           options={options}
         />
         <h3>Choose drop-off location</h3>
         <Select
           name="dropoffPoint"
-          value={selectedDropoff}
-          onChange={handleChangedropoff}
+          //value={selectedDropoff}
+          onChange={newHandleChange}
           options={options}
         />
         <h3>Choose Brand</h3>
         <Select
           name="car"
-          value={selectedCar}
-          onChange={handleCarChange}
+          //value={selectedCar}
+          onChange={newHandleChange}
           options={cars}
         />
         <h3>Choose Equipment</h3>
         <Select 
           name="equipment"
-          value={selectedEquipment}
-          onChange={handleEquipmentChange}
+          //value={selectedEquipment}
+          onChange={newHandleChange}
           options={equipment}
         />
         <h3>Choose Insurance</h3>
         <Select 
           name="insurance"
-          value={selectedInsurance}
-          onChange={handleInsuranceChange}
+          //value={selectedInsurance}
+          onChange={newHandleChange}
           options={insurance}
         />
         <input type="submit" value="Order" />
