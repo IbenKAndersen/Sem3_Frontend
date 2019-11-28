@@ -4,15 +4,19 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null, date: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: "", insurance: "" };
+  const initialValue = { id: null, date: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: [], insurance: "" };
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
-  const [equipment, setEquipment] = useState();
+  const [equipments, setEquipment] = useState();
   const [insurance, setInsurance] = useState();
   const [order, setOrder] = useState(initialValue);
 
   const newHandleChange = ( value, action ) => {
-      setOrder({...order, [action.name]: value.value});
+    if (action.name !== "equipment") {
+       setOrder({...order, [action.name]: value.value})
+    } else {
+      setOrder({...order, equipment: [...order.equipment, value[order.equipment.length].value]})
+    }
   };
 
   const changeDate = date => {
@@ -121,8 +125,10 @@ export default function Order() {
         <Select 
           name="equipment"
           //value={selectedEquipment}
+          isMulti
+          closeMenuOnSelect={false}
           onChange={newHandleChange}
-          options={equipment}
+          options={equipments}
         />
         <h3>Choose Insurance</h3>
         <Select 

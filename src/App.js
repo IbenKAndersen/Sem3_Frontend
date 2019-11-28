@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-do
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
+import CarDetails from "./components/CarDetails";
+import MyPage from "./components/MyPage";
 
 class LogIn extends Component {
   constructor(props) {
@@ -42,8 +44,6 @@ class LoggedIn extends Component {
     return (
       <div>
         <Header />
-        <h2>Data Received from server</h2>
-        <h3>{this.state.dataFromServer}</h3>
         <Content />
       </div>
     )
@@ -86,6 +86,8 @@ const Header = () => {
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
       <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
+      <li><NavLink activeClassName="active" to="/carDetails">Cars</NavLink></li>
+      <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
     </ul>
   );
 };
@@ -94,9 +96,11 @@ const Content = () => {
   return (
 
     <Switch>
-      <Route exact path="/"> <Order /> </Route>
-      <Route path="/carSelection"> <CarSelection /> </Route>
-      <Route path="/location"> <Location /> </Route>
+      <Route exact path="/"><Order /></Route>
+      <Route path="/carSelection"><CarSelection /></Route>
+      <Route path="/location"><Location /></Route>
+      <Route path="/carDetails"><CarDetails /></Route>
+      <Route path="/myPage"><MyPage /></Route>
     </Switch>
 
   )
