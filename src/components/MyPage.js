@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import ReactTable from "react-table";
-//import 'react-table/react-table.css';
+import ReactTable from 'react-table';
+
 import apiFacade from "../apiFacade";
 
 const URL = "http://localhost:3000/orders";
@@ -31,9 +31,27 @@ const MyPage = () => {
     setOrderId({id: ""});
   }
 
+  const columns = [{
+    Header: 'Car',
+    accessor: 'car.make' // String-based value accessors!
+  }, {
+    Header: 'Equipment',
+    accessor: 'equipment.name',
+  }, {
+    Header: 'Insurance',
+    accessor: 'insurance.name',
+  }, {
+    Header: 'PickupPoint',
+    accessor: 'pickupPoint.address'
+  }]
+
   return (
     <div>
       <h2>Welcome to your page</h2>
+      <ReactTable
+        data={myOrders}
+        columns={columns}
+      />
       <p><b>Delete my Order</b></p>
       <form onSubmit={handleSubmit}>
         <input 
