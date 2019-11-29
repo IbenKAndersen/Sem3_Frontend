@@ -42,7 +42,7 @@ class LoggedIn extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header logout={this.props.logout} />
         <Content />
       </div>
     )
@@ -68,8 +68,8 @@ class App extends Component {
           (
             <Router>
               <div>
-                <LoggedIn />
-                <button onClick={this.logout}>Logout</button>
+                <LoggedIn logout={this.logout} />
+                
               </div>
             </Router>
           )}
@@ -79,13 +79,15 @@ class App extends Component {
 }
 export default App;
 
-const Header = () => {
+const Header = (props) => {
+  
   return (
     <ul className="header">
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
       <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
       <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
+      <li style={{float : 'right'}}><button onClick={props.logout}>Logout</button></li>
     </ul>
   );
 };
