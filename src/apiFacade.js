@@ -72,15 +72,12 @@ class ApiFacade {
       const options = this.makeOptionsWithoutToken("POST", order);
       fetch(CAR_URL, options);
     }
-
   }
 
   deleteOrder = (orderId) => {
     const options = this.makeOptionsWithoutToken("DELETE");
     fetch([ORDER_URL + "/" + orderId], options);
-    console.log(orderId)
   }
-
 }
 const facade = new ApiFacade();
 
