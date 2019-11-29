@@ -3,7 +3,7 @@ import facade from "./apiFacade";
 import Order from "./components/Order";
 import Location from "./components/Location";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
 import MyPage from "./components/MyPage";
