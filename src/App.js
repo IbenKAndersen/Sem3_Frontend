@@ -3,10 +3,9 @@ import facade from "./apiFacade";
 import Order from "./components/Order";
 import Location from "./components/Location";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
-import CarDetails from "./components/CarDetails";
 import MyPage from "./components/MyPage";
 
 class LogIn extends Component {
@@ -86,7 +85,6 @@ const Header = () => {
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
       <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
-      <li><NavLink activeClassName="active" to="/carDetails">Cars</NavLink></li>
       <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
     </ul>
   );
@@ -99,7 +97,6 @@ const Content = () => {
       <Route exact path="/"><Order /></Route>
       <Route path="/carSelection"><CarSelection /></Route>
       <Route path="/location"><Location /></Route>
-      <Route path="/carDetails"><CarDetails /></Route>
       <Route path="/myPage"><MyPage /></Route>
     </Switch>
 

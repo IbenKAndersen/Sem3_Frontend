@@ -13,7 +13,7 @@ export default function Order() {
 
   const newHandleChange = ( value, action ) => {
     if (action.name !== "equipment") {
-       setOrder({...order, [action.name]: value.value})
+      setOrder({...order, [action.name]: value.value})
     } else {
       setOrder({...order, equipment: [...order.equipment, value[order.equipment.length].value]})
     }
