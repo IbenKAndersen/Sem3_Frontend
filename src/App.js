@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import facade from "./apiFacade";
 import Order from "./components/Order";
 import Location from "./components/Location";
-import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink, Switch, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
@@ -87,7 +87,7 @@ const Header = (props) => {
       <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
       <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
-      <li style={{float : 'right'}}><button onClick={props.logout}>Logout</button></li>
+      <li style={{float : 'right'}}><Link to="/" onClick={props.logout}>Logout</Link></li>
     </ul>
   );
 };
