@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import CarSelection from "./components/CarSelection";
 import MyPage from "./components/MyPage";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class LogIn extends Component {
   constructor(props) {
@@ -22,13 +24,23 @@ class LogIn extends Component {
   }
   render() {
     return (
-      <div>
-        <h2>Login</h2>
-        <form onSubmit={this.login} onChange={this.onChange} >
-          <input type="text" placeholder="User Name" id="username" required />
-          <input type="password" placeholder="Password" id="password" required />
-          <button>Login</button>
-        </form>
+      <div style={{width : window.outerWidth/4, padding : "25px", margin : "auto" }}>
+        <Form onSubmit={this.login} onChange={this.onChange} >
+          <Form.Group controlId="username">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control type="text" placeholder="Enter User Name" required />
+            <Form.Text className="text-muted">
+              We'll never share your info with anyone else.
+            </Form.Text>
+          </Form.Group>
+            <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" required />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Login
+          </Button>
+        </Form>
       </div>
     )
   }
