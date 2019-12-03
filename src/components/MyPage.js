@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import cancel_icon from "../img/delete.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import apiFacade from "../apiFacade";
+import Facade from "../apiFacade";
 
 const URL = "http://localhost:3000/orders";
 
 const MyPage = () => {
   const [myOrders, setMyOrders] = useState([]);
-  const [Error, setError] = useState("");
-  const [orderId, setOrderId] = useState({ id: "" });
 
   useEffect(() => {
     async function fetchData() {
@@ -19,19 +16,16 @@ const MyPage = () => {
       res
         .json()
         .then(res => setMyOrders(res))
-        .catch(err => setError(err));
+        .catch(err => {
+          alert("Error: " + err)
+        });
     }
     fetchData();
   }, []);
 
-  const handleChange = evt => {
-    setOrderId({ id: evt.target.value });
-  };
-
   const handleSubmit = id => {
     //evt.preventDefault();
-    apiFacade.deleteOrder(id);
-    setOrderId({ id: "" });
+    Facade.deleteOrder(id);
   };
 
   return (

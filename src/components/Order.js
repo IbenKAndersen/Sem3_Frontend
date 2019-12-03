@@ -4,7 +4,7 @@ import Calendar from "react-calendar";
 import facade from "../apiFacade";
 
 export default function Order() {
-  const initialValue = { id: null, date: null,  pickupPoint: "", dropoffPoint: "", car: "", equipment: [], insurance: "" };
+  const initialValue = { id: null, date: [],  pickupPoint: "", dropoffPoint: "", car: "", equipment: [], insurance: "" };
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
   const [equipments, setEquipment] = useState();
@@ -14,8 +14,8 @@ export default function Order() {
   const newHandleChange = ( value, action ) => {
     if (action.name !== "equipment") {
       setOrder({...order, [action.name]: value.value})
-    } else {
-      setOrder({...order, equipment: [...order.equipment, value[order.equipment.length].value]})
+    } else if (value !== null) {
+      setOrder({...order, equipment: [...value]})
     }
   };
 
@@ -25,8 +25,8 @@ export default function Order() {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log(order);
     facade.sendOrder(order);
+    setOrder(initialValue)
   };
 
   useEffect(() => {
@@ -74,6 +74,7 @@ export default function Order() {
       });
       setInsurance(list);
     }
+
     fecthLocationData();
     fecthLocationCarsData();
     fetchEquipmentData();

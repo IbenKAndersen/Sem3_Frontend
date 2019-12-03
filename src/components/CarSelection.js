@@ -3,7 +3,6 @@ import JSONPretty from "react-json-pretty";
 
 const CarSelection = () => {
   const carURL = "http://localhost:3000/orders";
-  const [hasError, setErrors] = useState(false);
   const [cars, setCars] = useState({});
 
   useEffect(() => {
@@ -12,7 +11,9 @@ const CarSelection = () => {
       res
         .json()
         .then(res => setCars(res))
-        .catch(err => setErrors(err));
+        .catch(err => {
+          alert("Connection error: " + err)
+        });
     }
     fetchData();
   }, []);
