@@ -1,6 +1,5 @@
 const URL = "https://kodebanditterne.dk/CA3-Backend-2.0";
-const CAR_URL = "http://localhost:3000/orders";
-const ORDER_URL = "http://localhost:8080/securitystarter/api/order";
+const ORDER_URL = "http://localhost:3000/orders";
 function handleHttpErrors(res) {
   if (!res.ok) {
     return Promise.reject({ status: res.status, fullError: res.json() })
@@ -68,15 +67,15 @@ class ApiFacade {
   }
 
   sendOrder = (order) => {
-    if (order.date !== "") {
-      const options = this.makeOptionsWithoutToken("POST", order);
-      fetch(CAR_URL, options);
-    }
+    const options = this.makeOptionsWithoutToken("POST", order);
+    return fetch(ORDER_URL, options)
+      .then(handleHttpErrors);
   }
 
   deleteOrder = (orderId) => {
     const options = this.makeOptionsWithoutToken("DELETE");
-    fetch([ORDER_URL + "/" + orderId], options);
+    return fetch([ORDER_URL + "/" + orderId], options)
+      .then(handleHttpErrors);
   }
 }
 const facade = new ApiFacade();

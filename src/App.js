@@ -5,7 +5,6 @@ import Location from "./components/Location";
 import { BrowserRouter as Router, Route, NavLink, Switch, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import CarSelection from "./components/CarSelection";
 import MyPage from "./components/MyPage";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -71,7 +70,10 @@ class App extends Component {
   }
   login = (user, pass) => {
     facade.login(user, pass)
-      .then(res => this.setState({ loggedIn: true }));
+      .then(res => this.setState({ loggedIn: true }))
+      .catch(() => {
+        alert("wrong password or username")
+      });
   }
   render() {
     return (
@@ -81,7 +83,6 @@ class App extends Component {
             <Router>
               <div>
                 <LoggedIn logout={this.logout} />
-                
               </div>
             </Router>
           )}
@@ -96,7 +97,6 @@ const Header = (props) => {
   return (
     <ul className="header">
       <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
-      <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
       <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
       <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
       <li style={{float : 'right'}}><Link to="/" onClick={props.logout}>Logout</Link></li>
@@ -109,7 +109,6 @@ const Content = () => {
 
     <Switch>
       <Route exact path="/"><Order /></Route>
-      <Route path="/carSelection"><CarSelection /></Route>
       <Route path="/location"><Location /></Route>
       <Route path="/myPage"><MyPage /></Route>
     </Switch>
