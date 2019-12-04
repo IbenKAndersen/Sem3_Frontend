@@ -24,7 +24,6 @@ const MyPage = () => {
   }, []);
 
   const handleSubmit = id => {
-    //evt.preventDefault();
     Facade.deleteOrder(id);
   };
 
