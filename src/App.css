@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* 
 ul.header {
   list-style-type: none;
   margin: 0;
@@ -21,8 +21,8 @@ ul.header {
  }
  ul.header li a:hover:not(.active) { background-color: #111;}
  .active { background-color:goldenrod; }
- 
- .table {
+  */
+.table {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 0.125rem;
@@ -105,4 +105,3 @@ ul.header {
   padding: 0.75rem 1rem;
   flex: 1 0 auto;
 }
-
