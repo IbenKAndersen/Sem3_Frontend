@@ -76,6 +76,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {/* {this.state.loggedIn ? (<LogIn login={this.login} />) : */}
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :
           (
             <Router>
@@ -94,13 +95,17 @@ export default App;
 const Header = (props) => {
   
   return (
-    <ul className="header">
-      <li><NavLink exact activeClassName="active" to="/">Order</NavLink></li>
-      <li><NavLink activeClassName="active" to="/carSelection">Orders</NavLink></li>
-      <li><NavLink activeClassName="active" to="/location">Location</NavLink></li>
-      <li><NavLink activeClassName="active" to="/myPage">My Page</NavLink></li>
-      <li style={{float : 'right'}}><Link to="/" onClick={props.logout}>Logout</Link></li>
-    </ul>
+    <div className="header">
+      <div className="container">
+        <ul className="header_list">
+          <li><NavLink exact className="button" activeClassName="active" to="/">Order</NavLink></li>
+          <li><NavLink className="button" activeClassName="active" to="/carSelection">Orders</NavLink></li>
+          <li><NavLink className="button" activeClassName="active" to="/location">Location</NavLink></li>
+          <li><NavLink className="button" activeClassName="active" to="/myPage">My Page</NavLink></li>
+        </ul>
+        <Link className="logout" to="/" onClick={props.logout}>Logout</Link>
+      </div>
+    </div>
   );
 };
 
