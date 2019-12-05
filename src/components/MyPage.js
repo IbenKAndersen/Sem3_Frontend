@@ -54,10 +54,10 @@ const MyPage = () => {
                   <td>{value.pickupPoint.address}</td>
                   <td>{value.date.to}</td>
                   <td>{value.dropoffPoint.address}</td>
-                  <td>{value.car.make.name}</td>
+                  <td>{value.car.make.name + " " + value.car.model.name}</td>
                   <td>
                     {value.equipment.map((value, i) => {
-                      return <div key={i}>{value.name}</div>;
+                      return <div key={i}>{value.label}</div>;
                     })}
                   </td>
                   <td>{value.insurance.name}</td>

@@ -1,5 +1,108 @@
 {
   "orders": [
-    
+    {
+      "date": {
+        "from": "2019-12-10T11:00:00.000Z",
+        "to": "2019-12-12T11:00:00.000Z"
+      },
+      "pickupPoint": {
+        "id": 2,
+        "address": "Kongens Lyngby City Hall",
+        "coord": "55.768400, 12.504070"
+      },
+      "dropoffPoint": {
+        "id": 2,
+        "address": "Kongens Lyngby City Hall",
+        "coord": "55.768400, 12.504070"
+      },
+      "car": {
+        "id": 2,
+        "carDetails": "Family friendly",
+        "make": {
+          "name": "Toyota"
+        },
+        "model": {
+          "name": "C-HR"
+        },
+        "location": {
+          "id": 19,
+          "address": "Malmø Midtown",
+          "coord": "55.608510, 12.999255"
+        }
+      },
+      "equipment": [
+        {
+          "label": "GPS",
+          "value": {
+            "id": 1,
+            "name": "GPS",
+            "price": 100
+          }
+        }
+      ],
+      "insurance": {
+        "id": 2,
+        "name": "No insurance",
+        "insured": false,
+        "price": 0
+      },
+      "id": 1
+    },
+    {
+      "date": {
+        "from": "2019-12-17T11:00:00.000Z",
+        "to": "2019-12-20T11:00:00.000Z"
+      },
+      "pickupPoint": {
+        "id": 4,
+        "address": "London Westminster",
+        "coord": "51.497039, -0.138996"
+      },
+      "dropoffPoint": {
+        "id": 1,
+        "address": "Stockholm Central Station",
+        "coord": "59.331215, 18.058206"
+      },
+      "car": {
+        "id": 6,
+        "carDetails": "Not family friendly",
+        "make": {
+          "name": "Porsche"
+        },
+        "model": {
+          "name": "Boxster"
+        },
+        "location": {
+          "id": 3,
+          "address": "Copenhagen Airport T2",
+          "coord": "55.629953, 12.637484"
+        }
+      },
+      "equipment": [
+        {
+          "label": "BroBizz",
+          "value": {
+            "id": 2,
+            "name": "BroBizz",
+            "price": 50
+          }
+        },
+        {
+          "label": "WiFi",
+          "value": {
+            "id": 4,
+            "name": "WiFi",
+            "price": 100
+          }
+        }
+      ],
+      "insurance": {
+        "id": 1,
+        "name": "Insurance+ Package",
+        "insured": true,
+        "price": 750
+      },
+      "id": 2
+    }
   ]
 }

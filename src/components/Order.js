@@ -34,10 +34,9 @@ const colourStyles = {
 
 export default function Order() {
   const initialValue = {
-    id: null,
     date: {
-      from: null,
-      to: null
+      from: "",
+      to: ""
     },
     pickupPoint: "",
     dropoffPoint: "",
@@ -51,8 +50,8 @@ export default function Order() {
   const [insurance, setInsurance] = useState();
   const [order, setOrder] = useState(initialValue);
   const [date, setDate] = useState({
-    from: null,
-    to: null
+    from: "",
+    to: ""
   });
 
   const newHandleChange = (value, action) => {
@@ -63,31 +62,39 @@ export default function Order() {
     }
   };
 
-  const changeDate = (from,to) => {
-    console.log(date)
-    console.log(from)
-    console.log(to)
-    setOrder({ ...order, date: {from,to} });
+  const changeDate = (from, to) => {
+    setOrder({ ...order, date: from, to });
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    facade.sendOrder(order);
-    setOrder(initialValue);
+    let isFulfilled = true
+    Object.keys(order).forEach(key => {
+      if (order[key] === "" || order[key] === null) {
+        alert("Please select following: " + key)
+        isFulfilled = false
+      }
+    })
+    if (isFulfilled) {
+      facade.sendOrder(order);
+      setOrder(initialValue);
+      setDate({ from: "", to: "" })
+      alert("Order sent!")
+    }
   };
 
   useEffect(() => {
     async function fecthLocationData() {
       const data = await facade.fetchDatabase("/api/all/locations");
       const list = data.map(element => {
-        return {label: element["address"], value: element}
+        return { label: element["address"], value: element }
       })
       setOptions(list);
     }
     async function fecthLocationCarsData() {
       const data = await facade.fetchDatabase("/api/all/cars");
       const list = data.map(element => {
-        return {label: element.make["name"] + " " + element.model["name"], value: element}
+        return { label: element.make["name"] + " " + element.model["name"], value: element }
       })
       setCars(list);
     }
@@ -111,7 +118,7 @@ export default function Order() {
     fetchInsuranceData();
   }, []);
   return (
-    <div className="container" style={{top : "50px"}}>
+    <div className="container" style={{ top: "50px" }}>
       <div className="row" >
         <div className="col-md-12" >
           <h1 className="mainTitle">Kodebanditternes car rental</h1>
@@ -140,10 +147,13 @@ export default function Order() {
                 Choose the days that you want to rent a car
               </div>
               <DatePicker
-                onDatesChange={changeDate}
                 from={date.from}
                 to={date.to}
-                setDate={(from, to) => setDate({ from, to })}
+                setDate={(from, to) => {
+                  setDate({ from, to })
+                  changeDate({ from, to })
+                }
+                }
               />
             </div>
             <div className="col-md-6">
