@@ -50,11 +50,11 @@ const MyPage = () => {
               return (
                 <tr key={index}>
                   <td>{value.id}</td>
-                  <td>{value.date[0]}</td>
-                  <td>{value.pickupPoint.Details}</td>
-                  <td>{value.date[1]}</td>
-                  <td>{value.dropoffPoint.Details}</td>
-                  <td>{value.car.make}</td>
+                  <td>{value.date.from}</td>
+                  <td>{value.pickupPoint.address}</td>
+                  <td>{value.date.to}</td>
+                  <td>{value.dropoffPoint.address}</td>
+                  <td>{value.car.make.name}</td>
                   <td>
                     {value.equipment.map((value, i) => {
                       return <div key={i}>{value.name}</div>;

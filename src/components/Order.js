@@ -63,9 +63,12 @@ export default function Order() {
     }
   };
 
-  // const changeDate = (from, to) => {
-  //   setOrder({ ...order, date: { from, to } });
-  // };
+  const changeDate = (from,to) => {
+    console.log(date)
+    console.log(from)
+    console.log(to)
+    setOrder({ ...order, date: {from,to} });
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -137,6 +140,7 @@ export default function Order() {
                 Choose the days that you want to rent a car
               </div>
               <DatePicker
+                onDatesChange={changeDate}
                 from={date.from}
                 to={date.to}
                 setDate={(from, to) => setDate({ from, to })}
