@@ -98,7 +98,7 @@ export default function Order() {
     async function fetchInsuranceData() {
       const data = await facade.fetchDatabase("/api/all/insurance")
       const list = data.map(element => {
-        return { label: element[""], value: element };
+        return { label: element["name"], value: element };
       })
       setInsurance(list);
     }
