@@ -1,4 +1,4 @@
-const URL = "https://kodebanditterne.dk/CA3-Backend-2.0";
+const URL = "https://kodebanditterne.dk/Sem3_Backend";
 const ORDER_URL = "http://localhost:3000/orders";
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -31,6 +31,7 @@ class ApiFacade {
       method: method,
       headers: {
         "Content-type": "application/json",
+        'Accept': 'application/json'
       }
     }
     if (body) {
@@ -63,6 +64,12 @@ class ApiFacade {
   fetchData = () => {
     const options = this.makeOptions("GET", true); //True add's the token
     return fetch(URL + "/api/info/user", options)
+      .then(handleHttpErrors);
+  }
+
+  fetchDatabase = (location) => {
+    const options = this.makeOptions("GET", true); //True add's the token
+    return fetch(URL + location, options)
       .then(handleHttpErrors);
   }
 

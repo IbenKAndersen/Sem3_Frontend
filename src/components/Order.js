@@ -43,12 +43,11 @@ export default function Order() {
     dropoffPoint: "",
     car: "",
     equipment: [],
-    insurance: ""
+    insurance: false
   };
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
   const [equipments, setEquipment] = useState();
-  const [insurance, setInsurance] = useState();
   const [order, setOrder] = useState(initialValue);
   const [date, setDate] = useState({
     from: null,
@@ -56,6 +55,10 @@ export default function Order() {
   });
 
   const newHandleChange = (value, action) => {
+    if (value.target.name === "insurance") {
+      setOrder({ ...order, insurance: value.target.value})
+      return
+    }
     if (action.name !== "equipment") {
       setOrder({ ...order, [action.name]: value.value });
     } else if (value !== null) {
@@ -75,60 +78,42 @@ export default function Order() {
 
   useEffect(() => {
     async function fecthLocationData() {
-      let response = await fetch("http://localhost:3000/locations");
-      let data = await response.json();
-      const list = [];
-
-      data.forEach(element => {
-        let dropDownEle = { label: element["address"], value: element };
-        list.push(dropDownEle);
-      });
+      const data = await facade.fetchDatabase("/api/all/locations");
+      const list = data.map(element => {
+        return {label: element["address"], value: element}
+      })
       setOptions(list);
     }
     async function fecthLocationCarsData() {
-      let response = await fetch("http://localhost:3000/cars");
-      let data = await response.json();
-      const list = [];
-
-      data.forEach(element => {
-        let dropDownEle = { label: element["make"], value: element };
-        list.push(dropDownEle);
-      });
+      const data = await facade.fetchDatabase("/api/all/cars");
+      const list = data.map(element => {
+        return {label: element.make["name"] + " " + element.model["name"], value: element}
+      })
       setCars(list);
     }
     async function fetchEquipmentData() {
-      let response = await fetch("http://localhost:3000/equipment");
-      let data = await response.json();
-      const list = [];
-
-      data.forEach(element => {
-        let dropDownEle = { label: element["name"], value: element };
-        list.push(dropDownEle);
-      });
+      const data = await facade.fetchDatabase("/api/all/equipment")
+      const list = data.map(element => {
+        return { label: element["name"], value: element }
+      })
       setEquipment(list);
     }
-    async function fetchInsuranceData() {
-      let response = await fetch("http://localhost:3000/insurance");
-      let data = await response.json();
-      const list = [];
-
-      data.forEach(element => {
-        let dropDownEle = { label: element["name"], value: element };
-        list.push(dropDownEle);
-      });
+    /*async function fetchInsuranceData() {
+      const data = await facade.fetchDatabase("/api/all/insurance")
+      const list = data.map(element => {
+        return { label: element[""], value: element };
+      })
       setInsurance(list);
-    }
-
+    }*/
     fecthLocationData();
     fecthLocationCarsData();
     fetchEquipmentData();
-    fetchInsuranceData();
+    /*fetchInsuranceData();*/
   }, []);
-
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12">
+    <div className="container" style={{top : "50px"}}>
+      <div className="row" >
+        <div className="col-md-12" >
           <h1 className="mainTitle">Kodebanditternes car rental</h1>
         </div>
         <div className="col-md-6 flexCenter">
@@ -195,7 +180,7 @@ export default function Order() {
               />
             </div>
             <div className="col-md-6">
-              <div className="label">Choose Brand</div>
+              <div className="label">Choose Car</div>
               <Select
                 name="car"
                 //value={selectedCar}
@@ -218,15 +203,8 @@ export default function Order() {
             </div>
             <div className="col-md-8">
               <div className="label">Choose Insurance</div>
-              <Select
-                name="insurance"
-                //value={selectedInsurance}
-                onChange={newHandleChange}
-                options={insurance}
-                styles={colourStyles}
-              />
+              <input type="checkbox" name="insurance" value="true" onChange={newHandleChange} /> Do you want insurance
             </div>
-
             <div className="col-md-4">
               <button className="button" type="submit" value="Order">
                 Order

@@ -100,7 +100,6 @@ const Header = (props) => {
       <div className="container">
         <ul className="header_list">
           <li><NavLink exact className="button" activeClassName="active" to="/">Order</NavLink></li>
-          <li><NavLink className="button" activeClassName="active" to="/carSelection">Orders</NavLink></li>
           <li><NavLink className="button" activeClassName="active" to="/location">Location</NavLink></li>
           <li><NavLink className="button" activeClassName="active" to="/myPage">My Page</NavLink></li>
         </ul>

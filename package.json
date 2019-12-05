@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
     "fixed-data-table-2": "^1.0.1",
     "google-maps-react": "^2.0.2",
     "moment": "^2.24.0",
