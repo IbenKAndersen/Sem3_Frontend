@@ -43,11 +43,12 @@ export default function Order() {
     dropoffPoint: "",
     car: "",
     equipment: [],
-    insurance: false
+    insurance: ""
   };
   const [options, setOptions] = useState();
   const [cars, setCars] = useState();
   const [equipments, setEquipment] = useState();
+  const [insurance, setInsurance] = useState();
   const [order, setOrder] = useState(initialValue);
   const [date, setDate] = useState({
     from: null,
@@ -55,10 +56,6 @@ export default function Order() {
   });
 
   const newHandleChange = (value, action) => {
-    if (value.target.name === "insurance") {
-      setOrder({ ...order, insurance: value.target.value})
-      return
-    }
     if (action.name !== "equipment") {
       setOrder({ ...order, [action.name]: value.value });
     } else if (value !== null) {
@@ -98,17 +95,17 @@ export default function Order() {
       })
       setEquipment(list);
     }
-    /*async function fetchInsuranceData() {
+    async function fetchInsuranceData() {
       const data = await facade.fetchDatabase("/api/all/insurance")
       const list = data.map(element => {
         return { label: element[""], value: element };
       })
       setInsurance(list);
-    }*/
+    }
     fecthLocationData();
     fecthLocationCarsData();
     fetchEquipmentData();
-    /*fetchInsuranceData();*/
+    fetchInsuranceData();
   }, []);
   return (
     <div className="container" style={{top : "50px"}}>
@@ -203,7 +200,13 @@ export default function Order() {
             </div>
             <div className="col-md-8">
               <div className="label">Choose Insurance</div>
-              <input type="checkbox" name="insurance" value="true" onChange={newHandleChange} /> Do you want insurance
+              <Select
+                name="insurance"
+                //value={selectedInsurance}
+                onChange={newHandleChange}
+                options={insurance}
+                styles={colourStyles}
+              />
             </div>
             <div className="col-md-4">
               <button className="button" type="submit" value="Order">
