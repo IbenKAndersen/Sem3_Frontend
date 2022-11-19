@@ -16,7 +16,7 @@
     "react-json-pretty": "^2.2.0",
     "react-moment": "^0.9.6",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "react-select": "^3.0.8",
     "react-table": "^6.10.3",
     "tail.datetime": "^0.4.13"
